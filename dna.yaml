@@ -1,0 +1,10 @@
+---
+manifest_version: "1"
+name: where
+uid: "0"
+properties: ~
+zomes:
+  - name: where
+    bundled: "target/wasm32-unknown-unknown/release/where.wasm"
+#  - name: profile
+#    bundled: "target/wasm32-unknown-unknown/release/profile.wasm"
