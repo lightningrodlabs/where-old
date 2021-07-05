@@ -36,7 +36,7 @@ module.exports = async (orchestrator) => {
 
     const spaces = await alice_where.call('where', 'get_spaces', null );
     console.log(spaces);
-    t.deepEqual(spaces, [space1]);
+    t.deepEqual(spaces[0][1], space1);
 
  /*
     let where1 = {

@@ -59,14 +59,17 @@ fn create_space(input: Space) -> ExternResult<EntryHash> {
 }
 
 #[hdk_extern]
-fn get_spaces(_: ()) -> ExternResult<Vec<Space>> {
+fn get_spaces(_: ()) -> ExternResult<Vec<(EntryHash, Space)>> {
     let path = get_spaces_path();
-    let spaces = get_spaces_inner(path.hash()?)?;
-//    let pairs = spaces.into_iter().map(|l| (hash_entry(&l)?, l)).collect();
-    Ok(spaces)
+    let pairs = get_spaces_inner(path.hash()?)?;
+    Ok(pairs)
 }
 
-fn get_spaces_inner(base: EntryHash) -> WhereResult<Vec<Space>> {
+fn get_spaces_inner(base: EntryHash) -> WhereResult<Vec<(EntryHash, Space)>> {
     let entries = get_links_and_load_type(base, None)?;
-    Ok(entries)
+    let mut pairs = vec![];
+    for e in entries {
+        pairs.push(( hash_entry(&e)?, e))
+    }
+    Ok(pairs)
 }

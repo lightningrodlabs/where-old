@@ -4,7 +4,7 @@ Tooling for group self-awareness
 
 ## Context
 
-Groups, especially remote colaborative groups, often lack contextual information about collaborators that makes working together harder.  Co-locating oneself across a number of spaces in the context of a group (or groups) provides an important avenue for improving both sense-making and working together.  Where provides a generalized pattern for creating shared maps for groups to see the emergent "whereness" of each other across self-evolved sets of maps.
+Groups, especially remote colaborative groups, often lack contextual information about collaborators that makes working together harder.  Co-locating oneself across a number of spaces in the context of a group (or groups) provides an important avenue for improving both sense-making and working together.  **Where** provides a generalized pattern for creating shared maps for groups to see the emergent "whereness" of each other across self-evolved sets of maps.
 
 ## Entry Types
 
@@ -65,7 +65,7 @@ struct Space {
     type: "fixed-tree",
     tree: {
       {
-      	sad: { 
+      	sad: {
           lonely: ["isolated", "abandoned"],
           vulnerable: ["victimized", "fragile"],
           despair: ["grief", "powerless"],
@@ -139,7 +139,7 @@ Here are some example "Wheres" in various different coordinate systems
 ## Zome-calls
 
 - `create_space(Space) -> Hash`: creates a space
-- `add_where(Space, Where) -> Hash`: adds a location to space 
+- `add_where(Space, Where) -> Hash`: adds a location to space
 - `remove_where(Where)`: removes a location from a space
 - `get_spaces() -> Vec<Space>`: returns a list of all spaces
 - `get_where(Space) -> Vec<(AgentPubKey,Timestamp,Where)>`: returns list of all locations in a space
