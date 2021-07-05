@@ -27,27 +27,30 @@ module.exports = async (orchestrator) => {
         range: {x: {min: 0, max: 1024}, y:{min:0, max: 1024}}
       },*/
       meta: {
-        url: "https://mountant-map-images.com/everest"
+        url: "https://mountain-map-images.com/cotopaxi"
       }
     };
     const space1_hash = await alice_where.call('where', 'create_space', space1 );
     t.ok(space1_hash)
-    console.log(space1_hash);
+    console.log("space1_hash", space1_hash);
 
     const spaces = await alice_where.call('where', 'get_spaces', null );
     console.log(spaces);
-    t.deepEqual(spaces[0][1], space1);
+    t.deepEqual(spaces, [[space1_hash,space1]]);
 
- /*
+
     let where1 = {
-      {
-        location: {x: 12354, y: 725},
-        meta: {tags: ["personal summit", "feeling good"]}
-      }
+      location: JSON.stringify({x: 12354, y: 725}),
+      meta: {tags: JSON.stringify(["personal summit", "feeling good"])}
     }
-    const where1_hash = await alice_where.call('where', 'add_where', {space: space1_hash, where: where1});
+    const where1_hash = await alice_where.call('where', 'add_where', {space: space1_hash, entry: where1})
     t.ok(where1_hash)
     console.log(where1_hash);
-*/
+
+    const wheres = await alice_where.call('where', 'get_wheres', space1_hash);
+    t.ok(wheres)
+    t.deepEqual(wheres[0].entry, where1)
+    t.deepEqual(wheres[0].author, alice_where.cellId[1])
+
   })
 }
