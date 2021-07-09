@@ -9,17 +9,25 @@
   let appId='where'
 
  onMount(async () => {
-    console.log("fish")
     where = new Where(appHost, appPort, appId)
-    console.log("fish2")
-    //await where.connect()
-    console.log("fish3")
+    await where.connect()
   });
+
+  let current = 0
 </script>
 
 <main>
-	<h1>Hello {$spaces[0].name}!</h1>
-
+  <h1>Where: {$spaces[current].name}!</h1>
+  <select bind:value={current} >
+    {#each $spaces as space, i}
+      <option value={i}>
+	{space.name}
+      </option>
+    {/each}
+  </select>
+  <div>
+    <img src="{$spaces[current].meta.url}">
+  </div>
 </main>
 
 <style>

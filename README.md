@@ -27,7 +27,18 @@ For more details read the [design documents](DESIGN.md).
 
 ## UI
 
-TODO
+To test out the UI first start your conductor with:
+
+``` bash
+hc s gen -r=8888 -a where
+    ```
+Then you can run the UI with:
+
+```bash
+cd ui
+npm install
+npm run dev
+```
 
 ### Testing
 
