@@ -28,8 +28,10 @@
   <div class="map">
     <img src="{$spaces[current].meta.url}">
     {#each $spaces[current].wheres as where}
-      <div class="where-marker" style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px">
-        <img src="{where.authorPic}">
+      <img class="where-marker" style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px" src="{where.authorPic}">
+      <div class="where-details" style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y + (40/2)}px" src="{where.authorPic}">
+        <h3>{where.authorName}</h3>
+        <p>{where.entry.meta}</p>
       </div>
     {/each}
   </div>
@@ -54,18 +56,37 @@
     position: relative;
   }
 
-  .where-marker {
+  img.where-marker {
+    max-width:100%;
+    max-height:100%;
+    border-radius: 10000px;
+    border: black 1px solid;
     position: absolute;
     height: 40px; /* hardcoded for now */
     width: 40px;
   }
 
-  .where-marker img {
-    max-width:100%;
-    max-height:100%;
-    border-radius: 10000px;
-    border: black 1px solid;
+  .where-details {
+    display: none;
+    position: absolute;
 
+    background: white;
+    border-radius: 10px;
+    border: 2px solid orange;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .where-details h3 {
+    margin: 0;
+  }
+
+  .where-details p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .where-marker:hover + .where-details, .where-details:hover {
+    display: block;
   }
 
 	@media (min-width: 640px) {
