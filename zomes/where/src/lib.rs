@@ -108,9 +108,6 @@ fn get_wheres_inner(base: EntryHash) -> WhereResult<Vec<WhereOutput>> {
 
     // for every link get details on the target and create the message
     for target in links.into_iter().map(|link| link.target) {
-        // Get details because we are going to return the original message and
-        // allow the UI to follow the CRUD tree to find which message
-        // to actually display.
         let w = match get_details(target, GetOptions::content())? {
             Some(Details::Entry(EntryDetails {
                 entry, mut headers, ..
