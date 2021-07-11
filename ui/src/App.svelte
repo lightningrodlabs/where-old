@@ -27,7 +27,6 @@
 
   function handleMapClick(event) {
     var rect = event.target.getBoundingClientRect();
-    console.log(rect)
     var x = event.clientX - rect.left; //x position within the element.
     var y = event.clientY - rect.top;  //y position within the element.
 
@@ -38,7 +37,6 @@
     } else {
       let w = {entry: {location: {x,y}, meta:""}}
       Object.assign(w,me)
-      console.log(w)
       $spaces[current].wheres.push(w)
     }
   }
@@ -69,7 +67,6 @@
 
 <style>
 	main {
-		text-align: center;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;

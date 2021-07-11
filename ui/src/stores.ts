@@ -22,7 +22,12 @@ export const spaces = writable(
       url: "https://www.freeworldmaps.net/southamerica/ecuador/ecuador-map.jpg",
       size: {x: 500, y: 300}
     },
-    wheres: []
+    wheres: [
+      { entry: {location: {x: 0, y: 0}, meta: "My apartment"},
+        authorPic: "https://i.imgur.com/4BKqQY1.png",
+        authorName: "Monk",
+        authorPubkey: "sntahoeuabcorchaotbkantgcdoesucd"}
+    ]
    }
   ]
 )
