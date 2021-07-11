@@ -13,18 +13,37 @@
     await where.connect()
   });
 
+  let current = 0
+  let meIdx = 0
+  let me = {
+    authorPic: "https://i.imgur.com/oIrcAO8.jpg",
+    authorName: "Eggy",
+    authorPubkey: "mememememememememememememememeeeeee"
+  }
+
+  function getMeIdxInSpace(idx) {
+    return $spaces[idx].wheres.findIndex((w) => w.authorPubkey == me.authorPubkey)
+  }
+
   function handleMapClick(event) {
     var rect = event.target.getBoundingClientRect();
+    console.log(rect)
     var x = event.clientX - rect.left; //x position within the element.
     var y = event.clientY - rect.top;  //y position within the element.
 
-    $spaces[current].wheres[meIdx].entry.location.x = x
-    $spaces[current].wheres[meIdx].entry.location.y = y
+    meIdx = getMeIdxInSpace(current)
+    if (meIdx >= 0) {
+      $spaces[current].wheres[meIdx].entry.location.x = x
+      $spaces[current].wheres[meIdx].entry.location.y = y
+    } else {
+      let w = {entry: {location: {x,y}, meta:""}}
+      Object.assign(w,me)
+      console.log(w)
+      $spaces[current].wheres.push(w)
+    }
   }
 
-  let current = 0
-  let me = "mememememememememememememememeeeeee"
-  let meIdx = 0
+
 </script>
 
 <main>
@@ -38,9 +57,9 @@
   </select>
   <div class="map">
     <img src="{$spaces[current].meta.url}" on:click={handleMapClick}>
-    {#each $spaces[current].wheres as where}
-      <img class="where-marker" class:me={where.authorPubkey == me} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px" src="{where.authorPic}">
-      <div class="where-details" class:me={where.authorPubkey == me} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y + (40/2)}px" src="{where.authorPic}">
+    {#each $spaces[current].wheres as where, i}
+      <img class="where-marker" class:me={i == meIdx} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px" src="{where.authorPic}">
+      <div class="where-details" class:me={i == meIdx} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y + (40/2)}px" src="{where.authorPic}">
         <h3>{where.authorName}</h3>
         <p>{where.entry.meta}</p>
       </div>
