@@ -14,6 +14,7 @@
   });
 
   let current = 0
+  let me = "mememememememememememememememeeeeee"
 </script>
 
 <main>
@@ -28,8 +29,8 @@
   <div class="map">
     <img src="{$spaces[current].meta.url}">
     {#each $spaces[current].wheres as where}
-      <img class="where-marker" style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px" src="{where.authorPic}">
-      <div class="where-details" style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y + (40/2)}px" src="{where.authorPic}">
+      <img class="where-marker" class:me={where.authorPubkey == me} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px" src="{where.authorPic}">
+      <div class="where-details" class:me={where.authorPubkey == me} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y + (40/2)}px" src="{where.authorPic}">
         <h3>{where.authorName}</h3>
         <p>{where.entry.meta}</p>
       </div>
@@ -66,15 +67,23 @@
     width: 40px;
   }
 
+  img.where-marker.me {
+    border: orange 2px solid;
+  }
+
   .where-details {
     display: none;
     position: absolute;
 
     background: white;
     border-radius: 10px;
-    border: 2px solid orange;
+    border: black 1px solid;
     padding: 15px;
     text-align: left;
+  }
+
+  .where-details.me {
+    border: orange 2px solid;
   }
 
   .where-details h3 {

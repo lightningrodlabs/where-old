@@ -1,8 +1,16 @@
 import { writable/*, readable, derived*/ } from 'svelte/store'
 
-const entry = {location: {x: 540, y: 410}, meta: "My house"}
 
-const wheres = [{entry, authorPic: "https://i.imgur.com/oIrcAO8.jpg", authorName: "Eggy"}]
+const wheres = [
+  { entry: {location: {x: 540, y: 410}, meta: "My house"},
+    authorPic: "https://i.imgur.com/oIrcAO8.jpg",
+    authorName: "Eggy",
+    authorPubkey: "mememememememememememememememeeeeee"},
+  { entry: {location: {x: 900, y: 420}, meta: "My apartment"},
+    authorPic: "https://i.imgur.com/4BKqQY1.png",
+    authorName: "Monk",
+    authorPubkey: "sntahoeuabcorchaotbkantgcdoesucd"}
+]
 
 export const spaces = writable(
   [{name: "Earth",
