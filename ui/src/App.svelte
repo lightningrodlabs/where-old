@@ -19,7 +19,7 @@
 
 <main>
   <h1>Where: {$spaces[current].name}!</h1>
-  <select bind:value={current} >
+  <select bind:value={current}>
     {#each $spaces as space, i}
       <option value={i}>
 	{space.name}
