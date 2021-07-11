@@ -13,8 +13,18 @@
     await where.connect()
   });
 
+  function handleMapClick(event) {
+    var rect = event.target.getBoundingClientRect();
+    var x = event.clientX - rect.left; //x position within the element.
+    var y = event.clientY - rect.top;  //y position within the element.
+
+    $spaces[current].wheres[meIdx].entry.location.x = x
+    $spaces[current].wheres[meIdx].entry.location.y = y
+  }
+
   let current = 0
   let me = "mememememememememememememememeeeeee"
+  let meIdx = 0
 </script>
 
 <main>
@@ -27,7 +37,7 @@
     {/each}
   </select>
   <div class="map">
-    <img src="{$spaces[current].meta.url}">
+    <img src="{$spaces[current].meta.url}" on:click={handleMapClick}>
     {#each $spaces[current].wheres as where}
       <img class="where-marker" class:me={where.authorPubkey == me} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y - (40/2)}px" src="{where.authorPic}">
       <div class="where-details" class:me={where.authorPubkey == me} style="left:{where.entry.location.x - (40/2)}px;top: {where.entry.location.y + (40/2)}px" src="{where.authorPic}">

@@ -19,8 +19,12 @@ export const spaces = writable(
       size: {x: 1920, y: 1019}
     },
     wheres},
-  {name: "Ecuador",
+   {name: "Ecuador",
     meta: {
-      url: "https://www.freeworldmaps.net/southamerica/ecuador/ecuador-map.jpg"
-    }}]
+      url: "https://www.freeworldmaps.net/southamerica/ecuador/ecuador-map.jpg",
+      size: {x: 500, y: 300}
+    },
+    wheres: []
+   }
+  ]
 )
