@@ -10,7 +10,7 @@ Groups, especially remote colaborative groups, often lack contextual information
 
 ### Space
 
-Specifies a space, which includes a coordinate system to use for that space.  To begin the app would likely just use Cartesian coordinate system wich refers to positions on a literal image.
+Specifies a space, which includes a coordinate system to use for that space. To begin the app would likely just use the Cartesian coordinate system wich refers to positions on a literal image.
 
 ``` rust
 struct Space {
@@ -87,7 +87,7 @@ struct Space {
 
 ### Where
 
-Specifies a contextualized a location in a Space. Note that the meta would not need to include data already included in Entry headers like timestamp and provenance.  *Where* instances are added as links to Space entries for lookup.
+Specifies a contextualized location in a Space. Note that the meta would not need to include data already included in Entry headers like timestamp and provenance.  *Where* instances are added as links to Space entries for lookup.
 
 ``` rust
 struct Where {
