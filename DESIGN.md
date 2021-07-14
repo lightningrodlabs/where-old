@@ -10,7 +10,7 @@ Groups, especially remote colaborative groups, often lack contextual information
 
 ### Space
 
-Specifies a space, which includes a coordinate system to use for that space. To begin the app would likely just use the Cartesian coordinate system wich refers to positions on a literal image.
+Specifies a space, which includes a coordinate system to use for that space.  To begin the app would likely just use the Cartesian coordinate system wich refers to positions on a literal image.
 
 ``` rust
 struct Space {
