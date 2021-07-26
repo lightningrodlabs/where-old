@@ -29,9 +29,10 @@ For more details read the [design documents](DESIGN.md).
 
 To test out the UI first start your conductor with:
 
-``` bash
+```bash
 hc s gen -r=8888 -a where
-    ```
+```
+
 Then you can run the UI with:
 
 ```bash
@@ -42,9 +43,9 @@ npm run dev
 
 ### Testing
 
-  ```bash
-  make test
-  ```
+```bash
+make test
+```
 
 ## License
 [![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
