@@ -25,10 +25,9 @@ module.exports = async (orchestrator) => {
         type: "orthogonal",
         coords: {x: "integer", y:"integer"},
         range: {x: {min: 0, max: 1024}, y:{min:0, max: 1024}}
-      },*/
-      meta: {
-        url: "https://mountain-map-images.com/cotopaxi"
-      }
+        },*/
+      surface: "https://mountain-map-images.com/cotopaxi",
+      meta: {}
     };
     const space1_hash = await alice_where.call('where', 'create_space', space1 );
     t.ok(space1_hash)

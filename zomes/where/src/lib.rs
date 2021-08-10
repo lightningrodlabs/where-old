@@ -31,6 +31,7 @@ entry_defs![
 pub struct Space {
     pub name: String,
     //pub dimensionality: CoordinateSystem,
+    pub surface: String,
     pub meta: HashMap<String, String>,  // usable by the UI for whatever
 }
 

@@ -10,12 +10,13 @@ Groups, especially remote colaborative groups, often lack contextual information
 
 ### Space
 
-Specifies a space, which includes a coordinate system to use for that space.  To begin the app would likely just use the Cartesian coordinate system wich refers to positions on a literal image.
+Specifies a space, which includes a coordinate system to use for that space, as well as a surface to render for it.  To begin the app would likely just use the Cartesian coordinate system wich refers to positions on a literal image which acts as the surface.
 
 ``` rust
 struct Space {
   name: String,
   dimensionality: CoordinateSystem,
+  surface: String, // json encoding of what ever constitutes a surface for this space
   meta: HashMap<String, String>,  // usable by the UI for whatever
 }
 ```
@@ -30,8 +31,9 @@ struct Space {
     coords: {x: "integer", y: "integer"},
     range: {x: {min: 0, max: 1024}, y:{min: 0, max: 1024}}
   },
+  surface: "https://mountain-map-images.com/everest",
   meta: {
-      url: "https://mountain-map-images.com/everest"
+      attribution: "photo taken by Jane Doe"
   }
 }
 ```
